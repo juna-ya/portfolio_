@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" /> <!-- @@팬시박스 -->
+    <link rel="stylesheet" href="lib/fullpage.css">
+    <link rel="stylesheet" href="css/포트폴리오.css">
+
+    <script src="lib/jquery-3.7.1.js"></script>
+    <script src="lib/fullpage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+    <script>
+        $(function () {
+            var loadingScreen = $('.loading');
+            var firstSection = $('#section0');
+            var titleList = $('#section0 .title li');
+
+
+            setTimeout(function () {
+                gsap.from(".line.top", {
+                    width: 0,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+
+                gsap.from(".line.bot", {
+                    width: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                    delay: 0.5
+                });
+
+                setTimeout(function () {
+                    const flowingText = document.querySelector(".flowing_text");
+                    flowingText.classList.add("running");
+                }, 2000);
+
+                loadingScreen.fadeOut(500);
+
+                firstSection.fadeIn(500, function () {
+                    titleList.each(function (index) {
+                        $(this).delay(index * 300).animate({
+                            opacity: 1,
+                            top: 0
+                        }, 500);
+                    });
+
+                    var myFullpage = new fullpage('#fullpage', {
+                        anchors: ['1stPage', '2ndPage', '3rdPage', '4thPage', '5thPage'],
+                        navigation: true,
+                        navigationTooltips: ['Home', 'About', 'Web Design', 'Graphic Design', 'Contact'],
+                        showActiveTooltip: true,
+                        menu: '#menu',
+                        credits: false
+                    });
+                });
+            }, 2500);
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="loading">
+        <div class="inner">
+            <div class="line top">
+                <span></span>
+            </div>
+            <div class="title">
+                <div class="flowing_text">
+                    <div><span>P</span></div>
+                    <div><span>O</span></div>
+                    <div><span>R</span></div>
+                    <div><span>T</span></div>
+                    <div><span>F</span></div>
+                    <div><span>O</span></div>
+                    <div><span>L</span></div>
+                    <div><span>I</span></div>
+                    <div><span>O</span></div>
+                </div>
+            </div>
+            <div class="line bot">
+                <span></span>
+            </div>
+        </div>
+    </div><!-- .loading -->
+
+    <header class="header">
+        <div class="inner">
+            <h1 class="logo">
+                <a href="#">KIM JUNA</a>
+            </h1>
+            <nav class="nav">
+                <ul class="gnb">
+                    <li><a href="#2ndPage">About</a></li>
+                    <li><a href="#3rdPage">Web Design</a></li>
+                    <li><a href="#4thPage">Graphic Design</a></li>
+                    <li><a href="#5thPage">Contact</a></li>
+                </ul><!-- .gnb -->
+            </nav><!-- .nav -->
+        </div><!-- .inner -->
+    </header><!-- #header end -->
+
+    <div id="fullpage">
+        <div class="section" id="section0">
+            <div class="inner">
+                <div class="text">
+                    <p>Hello !</p>
+                    <p>KIM JUNA'S!</p>
+                    <p>Web designer / publisher</p>
+                </div>
+                <ul class="title">
+                    <li><img src="img/P.png" alt=""></li>
+                    <li><img src="img/O.png" alt=""></li>
+                    <li><img src="img/r.png" alt=""></li>
+                    <li><img src="img/t.png" alt=""></li>
+                    <li><img src="img/f.png" alt=""></li>
+                    <li><img src="img/o(2).png" alt=""></li>
+                    <li><img src="img/L.png" alt=""></li>
+                    <li><img src="img/I.png" alt=""></li>
+                    <li><img src="img/O(3).png" alt=""></li>
+                </ul><!-- .title -->
+                <div class="scroll_down">
+                    <span>scroll down</span>
+                </div><!-- .scroll_diwn -->
+            </div><!-- .inner -->
+        </div><!-- .section0 -->
+
+        <div class="section" id="section1">
+            <div class="inner">
+                <figure class="profile_img">
+                    <img src="img/프로필사진.jpeg" alt="프로필 사진">
+                </figure>
+                <div class="text_wrap">
+                    <div class="profile">
+                        <h2>PROFILE</h2>
+                        <div class="profile_wrap">
+                            <div class="sub_title">
+                                <p>NAME</p>
+                                <p>BIRTH</p>
+                                <p>PHONE</p>
+                                <p>E-MAIL</p>
+                            </div><!-- .sub_title -->
+                            <div>
+                                <p>김준아</p>
+                                <p>1998.01.08</p>
+                                <p>010.6390.3656</p>
+                                <p>jjjjjuna@naver.com</p>
+                            </div>
+                        </div><!-- .profile_wrap -->
+                    </div><!-- .profile end -->
+
+                    <div class="education">
+                        <h2>EDUCATION</h2>
+                        <div class="education_wrap">
+                            <div class="date">
+                                <p>2024</p>
+                                <p>2017</p>
+                                <p>2017</p>
+                            </div><!-- .date -->
+
+                            <div>
+                                <p>그린컴퓨터아카데미 UI/UX 웹디자인 &웹퍼블리셔 양성과정 수료</p>
+                                <p>창신대학교 중국어학과</p>
+                                <p>김해삼문고등학교</p>
+                            </div>
+                        </div><!-- .education_wrap end -->
+                    </div><!-- .education end -->
+                    <div class="skill">
+                        <h2>SKLL</h2>
+                        <div class="icon_wrap">
+                            <figure>
+                                <img src="img/icon_html.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_css.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_js.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_jquery.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_react.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_photoshop.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_illustrator.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_figma.svg" alt="">
+                            </figure>
+                            <figure>
+                                <img src="img/icon_github.svg" alt="">
+                            </figure>
+                        </div><!-- .icon_wrap -->
+                    </div><!-- .skill end -->
+                </div><!-- .text_wrap -->
+            </div><!-- .inner -->
+        </div><!-- .about -->
+
+
+        <div class="section" id="section2">
+            <div class="inner">
+                <div class="item item1">
+                    <div class="mockup">
+                        <div class="image_box">
+                            <img src="img/29cm pc.png" alt="29cm PC">
+                        </div><!-- .image_box -->
+                    </div><!-- .mockup end -->
+
+                    <div class="text_wrap">
+                        <h3>29cm</h3>
+                        <p>29cm 적응형(PC) 메인페이지 리뉴얼</p>
+                        <div class="list">
+                            <ul>
+                                <li>프로젝트</li>
+                                <li>프로그램</li>
+                                <li>언어</li>
+                                <li>참여도</li>
+                            </ul>
+                            <ul>
+                                <li>적응형 웹사이트/리뉴얼</li>
+                                <li>Figma, Photoshop, Visual Studio Code</li>
+                                <li>HTML, CSS, JavaScript</li>
+                                <li>기획,디자인,퍼블리싱 100%</li>
+                            </ul>
+                        </div><!-- .list end -->
+
+                        <div class="btn_wrap">
+                            <a href="img/29cm_프로세스.pdf" target="_blank">PROCESS</a>
+                            <a href="https://juna-ya.github.io/29cm/" target="_blank">WEBSITE</a>
+                        </div><!-- .btn_Wrap end -->
+
+                    </div><!-- .text_wrap -->
+                </div><!-- .item item1 end -->
+
+                <div class="item item2">
+                    <div class="mockup">
+                        <div class="image_box">
+                            <img src="img/조셉앤스테이시 pc.png" alt="조셉앤스테이시 PC">
+                        </div><!-- .image_box -->
+                        <div class="mockup_mobile">
+                            <div class="image_mobile">
+                                <img src="img/조셉앤스테이시_mobile.jpg" alt="조셉앤스테이시 모바일">
+                            </div>
+                        </div>
+                    </div><!-- .mockup end -->
+                    <div class="text_wrap">
+                        <h3>조셉앤스테이시</h3>
+                        <p>조셉앤스테이시 반응형 메인페이지 리뉴얼</p>
+                        <div class="list">
+                            <ul>
+                                <li>프로젝트</li>
+                                <li>프로그램</li>
+                                <li>언어</li>
+                                <li>참여도</li>
+                            </ul>
+                            <ul>
+                                <li>반응형 웹사이트/리뉴얼</li>
+                                <li>Figma, Photoshop, Visual Studio Code</li>
+                                <li>HTML, CSS, JavaScript</li>
+                                <li>기획,디자인,퍼블리싱 100%</li>
+                            </ul>
+                        </div><!-- .list end -->
+
+                        <div class="btn_wrap">
+                            <a href="img/조셉앤스테이시_프로세스.pdf" target="_blank">PROCESS</a>
+                            <a href="https://juna-ya.github.io/josephandstacey/" target="_blank">WEBSITE</a>
+                        </div><!-- .btn_Wrap end -->
+                    </div><!-- .text_wrap -->
+
+                </div><!-- .item item2 end -->
+
+                <div class="item item3">
+                    <div class="mockup">
+                        <div class="image_box">
+                            <img src="img/삐아 pc.png" alt="BBIA PC">
+                        </div><!-- .image_box -->
+                    </div><!-- .mockup end -->
+
+                    <div class="text_wrap">
+                        <h3>BBIA</h3>
+                        <p>BBIA 적응형(PC) 메인페이지 리뉴얼</p>
+                        <div class="list">
+                            <ul>
+                                <li>프로젝트</li>
+                                <li>프로그램</li>
+                                <li>언어</li>
+                                <li>참여도</li>
+                            </ul>
+                            <ul>
+                                <li>적응형 웹사이트/리뉴얼</li>
+                                <li>Figma, Photoshop, Visual Studio Code</li>
+                                <li>HTML, CSS, JavaScript</li>
+                                <li>기획,디자인,퍼블리싱 100%</li>
+                            </ul>
+                        </div><!-- .list end -->
+
+                        <div class="btn_wrap">
+                            <a href="img/BBIA_프로세스.pdf" target="_blank">PROCESS</a>
+                            <a href="https://juna-ya.github.io/BBIA/" target="_blank">WEBSITE</a>
+                        </div><!-- .btn_Wrap end -->
+                    </div><!-- .text_wrap -->
+
+
+                </div><!-- .item item3 end -->
+
+                <div class="item item4">
+
+                    <div class="text_wrap">
+                        <h3>펫피</h3>
+                        <p>반려동물 1위 서비스 펫피</p>
+                        <div class="list">
+                            <ul>
+                                <li>프로젝트</li>
+                                <li>프로그램</li>
+                                <li>참여도</li>
+                            </ul>
+                            <ul>
+                                <li>모바일앱디자인 리뉴얼</li>
+                                <li>Figma</li>
+                                <li>100% 개인작업</li>
+                            </ul>
+                        </div><!-- .list end -->
+
+                        <div class="btn_wrap">
+                            <a href="img/펫피_프로세스.pdf" target="_blank">PROCESS</a>
+                            <a href="https://www.figma.com/design/4g3p09RiNpelYJhMIxufw3/%ED%8E%AB%ED%94%BC_%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=0-1&p=f&t=RymMQAIVxvqrxR0s-0" target="_blank">FIGMA</a>
+                            <a href="https://www.figma.com/proto/4g3p09RiNpelYJhMIxufw3/%ED%8E%AB%ED%94%BC_%EB%A6%AC%EB%89%B4%EC%96%BC?node-id=1-66&p=f&t=M4yE1ejhz0Pqr7VV-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A66" target="_blank">WEBSITE</a>
+                        </div><!-- .btn_Wrap end -->
+                    </div><!-- .text_wrap -->
+                    <div class="mockup">
+                        <div class="image_box">
+
+                        </div><!-- .image_box -->
+                    </div><!-- .mockup end -->
+
+                </div><!-- .item item4 end -->
+
+                <div class="item item5">
+
+                    <div class="text_wrap">
+                        <h3>POPPLY</h3>
+                        <p>팝업스토어 전문 플랫폼</p>
+                        <div class="list">
+                            <ul>
+                                <li>프로젝트</li>
+                                <li>프로그램</li>
+                                <li>참여도</li>
+                            </ul>
+                            <ul>
+                                <li>모바일앱디자인 모작</li>
+                                <li>Figma</li>
+                                <li>100% 개인작업</li>
+                            </ul>
+                        </div><!-- .list end -->
+
+                        <div class="btn_wrap">
+                            <a href="#" target="_blank">PROCESS</a>
+                            <a href="" target="_blank">FIGMA</a>
+                        </div><!-- .btn_Wrap end -->
+                    </div><!-- .text_wrap -->
+
+                    <div class="mockup">
+                        <div class="image_box">
+
+                        </div><!-- .image_box -->
+                    </div><!-- .mockup end -->
+                </div><!-- .item item4 end -->
+
+            </div><!-- .inner -->
+        </div><!-- .section2 -->
+
+        <div class="section" id="section3">
+            <div class="inner">
+                <div class="text_wrap">
+                    <h2 class="title">Design</h2>
+                    <p>Adobe Photoshop&Illustrator로 디자인한 작업물입니다.
+                        <br />
+                        <span>(클릭시 이미지가 확대됩니다.)</span>
+                    </p>
+                </div><!-- .text_wrap -->
+
+                <div class="design-grid">
+                    <div class="design-item design1">
+                        <a class="big" href="img/design1.jpg" data-fancybox="images">
+                            <img src="img/design1.jpg" alt="Design 1">
+                        </a>
+                    </div>
+                    <div class="design-item design2">
+                        <a class="big" href="img/design2.jpg" data-fancybox="images">
+                            <img src="img/design2.jpg" alt="Design 2">
+                        </a>
+                    </div>
+                    <div class="design-item design3">
+                        <a class="big" href="img/design3.jpg" data-fancybox="images">
+                            <img src="img/design3.jpg" alt="Design 3">
+                        </a>
+                    </div>
+                    <div class="design-item design4">
+                        <a class="big" href="img/design4.jpg" data-fancybox="images">
+                            <img src="img/design4.jpg" alt="Design 4">
+                        </a>
+                    </div>
+                    <div class="design-item design5">
+                        <a class="big" href="img/design6.jpg" data-fancybox="images">
+                            <img src="img/design6.jpg" alt="Design 5">
+                        </a>
+                    </div>
+                    <div class="design-item design6">
+                        <a class="big" href="img/design5.jpg" data-fancybox="images">
+                            <img src="img/design5.jpg" alt="Design 6">
+                        </a>
+                    </div>
+                </div><!-- .design-grid -->
+            </div>
+        </div><!-- .section3 -->
+
+
+        <div class="section" id="section4">
+            <div class="contact">
+                <h2>Contact Us</h2>
+                <div class="info">
+                    <div class="left">
+                        <div class="item">
+                            <p><a href="tel:+01063903656"><img src="img/phone.png" alt="">010.6390.3656</a></p>
+                        </div>
+                        <div class="item">
+                            <p><a href="mailto:jjjjjuna@naver.com"><img src="img/email.png"
+                                        alt="">jjjjjuna@naver.com</a></p>
+                        </div>
+                    </div><!-- .left -->
+                    <div class="right">
+                        <div class="item">
+                            <p><a href="img/포트폴리오.pdf" target="_blank"><img src="img/portfolio_icon.svg" alt="">PORTFOLIO</a></p>
+                        </div>
+                        <div class="item">
+                            <p><a href="https://github.com/juna-ya?tab=repositories" target="_blank"><img src="img/github_icon.svg" alt="">GITHUB</a></p>
+                        </div>
+                    </div><!-- .right -->
+                </div>
+                <span class="typing">
+                    THANK YOU FOR TAKING THE PRECIOUS TIME
+                    <br />
+                    TO CHECK YOUR PORTFOLIO !
+                </span><!-- .typing -->
+            </div>
+
+            <div class="footer">
+                <p>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</p>
+                <p>© 2024 Kim JunA. All Rights Reserved.</p>
+            </div>
+        </div><!-- .section4 -->
+    </div><!-- .fullpage end -->
+</body>
+
+</html>
