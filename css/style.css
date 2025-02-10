@@ -630,10 +630,9 @@ body {
 
 /****************** .section3 ******************/
 #section3 {
-    padding: 10px 50px;
+    /* padding: 10px 50px; */
     margin-top: 80px;
     background-color: #f9f9f9;
-    /* text-align: center; */
 }
 #section3 .inner {
     display: flex;
@@ -643,6 +642,7 @@ body {
 }
 #section3 .text_wrap {
     margin-top: 10%;
+    margin-left: 10%;
 }
 
 #section3 .text_wrap .title {
