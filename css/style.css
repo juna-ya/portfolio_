@@ -706,6 +706,18 @@ body {
     grid-column: span 3;
     grid-row: span 1;
 }
+.design7 {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+.design8 {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+.design9 {
+    grid-column: span 3;
+    grid-row: span 2;
+}
 .design-grid .design-item img {
     filter: grayscale(100%);
     width: 100%;
